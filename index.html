@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,33 +19,8 @@
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 70%; /* Adjust as needed */
-        }
-
-        .filters {
-            margin-bottom: 20px;
-        }
-
-        .filters .row {
-            margin-bottom: 10px;
-        }
-
-        .filters button {
-            margin-right: 10px;
-            padding: 5px 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .filters button.active {
-            background-color: #0056b3;
-        }
-
-        .filters button:hover {
-            background-color: #0056b3;
+            max-width: 70%;
+            /* Adjust as needed */
         }
 
         .recipes {
@@ -52,34 +28,11 @@
         }
 
         .recipe {
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
 
         .recipe h2 {
             margin-bottom: 10px;
-            cursor: pointer;
-            color: #007bff;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-
-        .recipe h2:hover {
-            background-color: #f1f1f1;
-        }
-
-        .recipe-content {
-            display: none; /* Initially hidden */
-            padding: 10px;
-            border-left: 4px solid #007bff;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        .recipe-content.open {
-            display: block; /* Show when open */
         }
 
         .recipe ul {
@@ -106,12 +59,15 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            width: 25%; /* Adjust as needed */
+            width: 25%;
+            /* Adjust as needed */
             background-color: #fff;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-height: 90vh; /* Limit height to viewport */
-            overflow-y: auto; /* Add scroll if content overflows */
+            max-height: 90vh;
+            /* Limit height to viewport */
+            overflow-y: auto;
+            /* Add scroll if content overflows */
         }
 
         #shopping-list ul {
@@ -149,124 +105,124 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Recipes</h1>
-        <div class="filters">
-            <div class="row">
-                <button onclick="filterByType('all')" id="filter-all" class="active">All</button>
-                <button onclick="filterByType('rice')" id="filter-rice">Rice</button>
-                <button onclick="filterByType('pasta')" id="filter-pasta">Pasta</button>
-                <button onclick="filterByType('potatoes')" id="filter-potatoes">Potatoes</button>
-                <button onclick="filterByType('soup')" id="filter-soup">Soup</button>
-            </div>
-            <div class="row">
-                <button onclick="toggleFilter('meat')" id="filter-meat">Meat</button>
-                <button onclick="toggleFilter('fish')" id="filter-fish">Fish</button>
-            </div>
-        </div>
         <div class="recipes">
             <!-- Recipe 1 -->
-            <div class="recipe" data-type="pasta" data-meat="true">
-                <h2 onclick="toggleRecipe(this)">Spaghetti Bolognese</h2>
-                <div class="recipe-content">
-                    <button class="check-all" onclick="toggleCheckAll(this)">Check All</button>
-                    <ul>
-                        <li><input type="checkbox" data-name="Spaghetti" data-quantity="200" data-category="Carbs"> 200g Spaghetti</li>
-                        <li><input type="checkbox" data-name="Ground Beef" data-quantity="300" data-category="Meat"> 300g Ground Beef</li>
-                        <li><input type="checkbox" data-name="Tomato Sauce" data-quantity="400" data-category="Vegetables"> 400ml Tomato Sauce</li>
-                        <li><input type="checkbox" data-name="Onion" data-quantity="1" data-category="Vegetables"> 1 Onion</li>
-                        <li><input type="checkbox" data-name="Garlic" data-quantity="2" data-category="Herbs/Spices"> 2 Garlic Cloves</li>
-                    </ul>
-                    <div class="instructions">
-                        <h3>Instructions</h3>
-                        <p>1. Cook spaghetti according to package instructions. <br>
-                           2. Brown ground beef in a pan. <br>
-                           3. Add tomato sauce, onion, and garlic. Simmer for 10 minutes. <br>
-                           4. Serve sauce over spaghetti.</p>
-                    </div>
+            <div class="recipe">
+                <h2>Recipe 1: Spaghetti Bolognese</h2>
+                <button class="check-all">Check All</button>
+                <ul>
+                    <li><input type="checkbox" data-name="Spaghetti" data-quantity="200" data-category="Carbs"> 200g
+                        Spaghetti</li>
+                    <li><input type="checkbox" data-name="Ground Beef" data-quantity="300" data-category="Meat"> 300g
+                        Ground Beef</li>
+                    <li><input type="checkbox" data-name="Tomato Sauce" data-quantity="400" data-category="Vegetables">
+                        400ml Tomato Sauce</li>
+                    <li><input type="checkbox" data-name="Onion" data-quantity="1" data-category="Vegetables"> 1 Onion
+                    </li>
+                    <li><input type="checkbox" data-name="Garlic" data-quantity="2" data-category="Herbs/Spices"> 2
+                        Garlic Cloves</li>
+                </ul>
+                <div class="instructions">
+                    <h3>Instructions</h3>
+                    <p>1. Cook spaghetti according to package instructions. <br>
+                        2. Brown ground beef in a pan. <br>
+                        3. Add tomato sauce, onion, and garlic. Simmer for 10 minutes. <br>
+                        4. Serve sauce over spaghetti.</p>
                 </div>
             </div>
 
             <!-- Recipe 2 -->
-            <div class="recipe" data-type="pasta" data-meat="true">
-                <h2 onclick="toggleRecipe(this)">Spaghetti Carbonara</h2>
-                <div class="recipe-content">
-                    <button class="check-all" onclick="toggleCheckAll(this)">Check All</button>
-                    <ul>
-                        <li><input type="checkbox" data-name="Spaghetti" data-quantity="200" data-category="Carbs"> 200g Spaghetti</li>
-                        <li><input type="checkbox" data-name="Bacon" data-quantity="150" data-category="Meat"> 150g Bacon</li>
-                        <li><input type="checkbox" data-name="Eggs" data-quantity="2" data-category="Vegetables"> 2 Eggs</li>
-                        <li><input type="checkbox" data-name="Parmesan Cheese" data-quantity="50" data-category="Herbs/Spices"> 50g Parmesan Cheese</li>
-                    </ul>
-                    <div class="instructions">
-                        <h3>Instructions</h3>
-                        <p>1. Cook spaghetti according to package instructions. <br>
-                           2. Fry bacon until crispy. <br>
-                           3. Whisk eggs and Parmesan cheese together. <br>
-                           4. Combine spaghetti, bacon, and egg mixture. Serve immediately.</p>
-                    </div>
+            <div class="recipe">
+                <h2>Recipe 2: Spaghetti Carbonara</h2>
+                <button class="check-all">Check All</button>
+                <ul>
+                    <li><input type="checkbox" data-name="Spaghetti" data-quantity="200" data-category="Carbs"> 200g
+                        Spaghetti</li>
+                    <li><input type="checkbox" data-name="Bacon" data-quantity="150" data-category="Meat"> 150g Bacon
+                    </li>
+                    <li><input type="checkbox" data-name="Eggs" data-quantity="2" data-category="Vegetables"> 2 Eggs
+                    </li>
+                    <li><input type="checkbox" data-name="Parmesan Cheese" data-quantity="50"
+                            data-category="Herbs/Spices"> 50g Parmesan Cheese</li>
+                </ul>
+                <div class="instructions">
+                    <h3>Instructions</h3>
+                    <p>1. Cook spaghetti according to package instructions. <br>
+                        2. Fry bacon until crispy. <br>
+                        3. Whisk eggs and Parmesan cheese together. <br>
+                        4. Combine spaghetti, bacon, and egg mixture. Serve immediately.</p>
                 </div>
             </div>
 
             <!-- Recipe 3 -->
-            <div class="recipe" data-type="rice" data-fish="true">
-                <h2 onclick="toggleRecipe(this)">Grilled Salmon with Rice</h2>
-                <div class="recipe-content">
-                    <button class="check-all" onclick="toggleCheckAll(this)">Check All</button>
-                    <ul>
-                        <li><input type="checkbox" data-name="Salmon" data-quantity="300" data-category="Fish"> 300g Salmon</li>
-                        <li><input type="checkbox" data-name="Rice" data-quantity="200" data-category="Carbs"> 200g Rice</li>
-                        <li><input type="checkbox" data-name="Lemon" data-quantity="1" data-category="Vegetables"> 1 Lemon</li>
-                        <li><input type="checkbox" data-name="Olive Oil" data-quantity="30" data-category="Herbs/Spices"> 30ml Olive Oil</li>
-                    </ul>
-                    <div class="instructions">
-                        <h3>Instructions</h3>
-                        <p>1. Cook rice according to package instructions. <br>
-                           2. Grill salmon with olive oil and lemon. <br>
-                           3. Serve salmon over rice.</p>
-                    </div>
+            <div class="recipe">
+                <h2>Recipe 3: Chicken Stir Fry</h2>
+                <button class="check-all">Check All</button>
+                <ul>
+                    <li><input type="checkbox" data-name="Chicken Breast" data-quantity="300" data-category="Meat"> 300g
+                        Chicken Breast</li>
+                    <li><input type="checkbox" data-name="Bell Peppers" data-quantity="2" data-category="Vegetables"> 2
+                        Bell Peppers</li>
+                    <li><input type="checkbox" data-name="Soy Sauce" data-quantity="50"
+                            data-category="Premade Spicemixes"> 50ml Soy Sauce</li>
+                    <li><input type="checkbox" data-name="Rice" data-quantity="200" data-category="Carbs"> 200g Rice
+                    </li>
+                </ul>
+                <div class="instructions">
+                    <h3>Instructions</h3>
+                    <p>1. Cook rice according to package instructions. <br>
+                        2. Stir-fry chicken and bell peppers in a pan. <br>
+                        3. Add soy sauce and cook for 5 minutes. <br>
+                        4. Serve with rice.</p>
                 </div>
             </div>
 
             <!-- Recipe 4 -->
-            <div class="recipe" data-type="potatoes" data-meat="true">
-                <h2 onclick="toggleRecipe(this)">Shepherd's Pie</h2>
-                <div class="recipe-content">
-                    <button class="check-all" onclick="toggleCheckAll(this)">Check All</button>
-                    <ul>
-                        <li><input type="checkbox" data-name="Ground Beef" data-quantity="300" data-category="Meat"> 300g Ground Beef</li>
-                        <li><input type="checkbox" data-name="Potatoes" data-quantity="500" data-category="Carbs"> 500g Potatoes</li>
-                        <li><input type="checkbox" data-name="Carrots" data-quantity="2" data-category="Vegetables"> 2 Carrots</li>
-                        <li><input type="checkbox" data-name="Peas" data-quantity="100" data-category="Vegetables"> 100g Peas</li>
-                    </ul>
-                    <div class="instructions">
-                        <h3>Instructions</h3>
-                        <p>1. Cook and mash potatoes. <br>
-                           2. Brown ground beef with carrots and peas. <br>
-                           3. Layer beef mixture in a dish and top with mashed potatoes. <br>
-                           4. Bake at 180°C for 20 minutes.</p>
-                    </div>
+            <div class="recipe">
+                <h2>Recipe 4: Pancakes</h2>
+                <button class="check-all">Check All</button>
+                <ul>
+                    <li><input type="checkbox" data-name="Flour" data-quantity="200" data-category="Carbs"> 200g Flour
+                    </li>
+                    <li><input type="checkbox" data-name="Milk" data-quantity="300" data-category="Vegetables"> 300ml
+                        Milk</li>
+                    <li><input type="checkbox" data-name="Eggs" data-quantity="2" data-category="Vegetables"> 2 Eggs
+                    </li>
+                    <li><input type="checkbox" data-name="Butter" data-quantity="50" data-category="Vegetables"> 50g
+                        Butter</li>
+                </ul>
+                <div class="instructions">
+                    <h3>Instructions</h3>
+                    <p>1. Mix flour, milk, and eggs to make the batter. <br>
+                        2. Heat butter in a pan. <br>
+                        3. Pour batter into the pan and cook until golden brown on both sides. <br>
+                        4. Serve with syrup or fruit.</p>
                 </div>
             </div>
 
             <!-- Recipe 5 -->
-            <div class="recipe" data-type="soup" data-fish="true">
-                <h2 onclick="toggleRecipe(this)">Fish Chowder</h2>
-                <div class="recipe-content">
-                    <button class="check-all" onclick="toggleCheckAll(this)">Check All</button>
-                    <ul>
-                        <li><input type="checkbox" data-name="Fish Fillet" data-quantity="300" data-category="Fish"> 300g Fish Fillet</li>
-                        <li><input type="checkbox" data-name="Potatoes" data-quantity="200" data-category="Carbs"> 200g Potatoes</li>
-                        <li><input type="checkbox" data-name="Milk" data-quantity="500" data-category="Vegetables"> 500ml Milk</li>
-                        <li><input type="checkbox" data-name="Onion" data-quantity="1" data-category="Vegetables"> 1 Onion</li>
-                    </ul>
-                    <div class="instructions">
-                        <h3>Instructions</h3>
-                        <p>1. Cook potatoes and onion in a pot. <br>
-                           2. Add fish and milk, then simmer for 15 minutes. <br>
-                           3. Serve hot.</p>
-                    </div>
+            <div class="recipe">
+                <h2>Recipe 5: Caesar Salad</h2>
+                <button class="check-all">Check All</button>
+                <ul>
+                    <li><input type="checkbox" data-name="Romaine Lettuce" data-quantity="1" data-category="Vegetables">
+                        1 Romaine Lettuce</li>
+                    <li><input type="checkbox" data-name="Croutons" data-quantity="100" data-category="Carbs"> 100g
+                        Croutons</li>
+                    <li><input type="checkbox" data-name="Parmesan Cheese" data-quantity="50"
+                            data-category="Herbs/Spices"> 50g Parmesan Cheese</li>
+                    <li><input type="checkbox" data-name="Caesar Dressing" data-quantity="100"
+                            data-category="Premade Spicemixes"> 100ml Caesar Dressing</li>
+                </ul>
+                <div class="instructions">
+                    <h3>Instructions</h3>
+                    <p>1. Wash and chop the lettuce. <br>
+                        2. Toss lettuce with croutons, Parmesan cheese, and Caesar dressing. <br>
+                        3. Serve immediately.</p>
                 </div>
             </div>
         </div>
@@ -279,9 +235,10 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             const shoppingListContent = document.getElementById('shopping-list-content');
+            const checkAllButtons = document.querySelectorAll('.check-all');
             let ingredients = {};
 
             // Function to handle checkbox changes
@@ -314,79 +271,35 @@
 
             // Add event listeners to individual checkboxes
             checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
+                checkbox.addEventListener('change', function () {
                     handleCheckboxChange(this);
                 });
             });
 
-            // Function to toggle all checkboxes in a recipe
-            window.toggleCheckAll = function(button) {
-                const recipe = button.closest('.recipe');
-                const recipeCheckboxes = recipe.querySelectorAll('input[type="checkbox"]');
+            // Add event listeners to "Check All" buttons
+            checkAllButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const recipe = this.closest('.recipe');
+                    const recipeCheckboxes = recipe.querySelectorAll('input[type="checkbox"]');
 
-                // Check if all checkboxes in the recipe are already checked
-                const allChecked = Array.from(recipeCheckboxes).every(checkbox => checkbox.checked);
+                    // Check if all checkboxes in the recipe are already checked
+                    const allChecked = Array.from(recipeCheckboxes).every(checkbox => checkbox.checked);
 
-                // Toggle all checkboxes
-                recipeCheckboxes.forEach(checkbox => {
-                    checkbox.checked = !allChecked; // Uncheck if all are checked, otherwise check
-                    handleCheckboxChange(checkbox);
+                    // Toggle all checkboxes
+                    recipeCheckboxes.forEach(checkbox => {
+                        checkbox.checked = !allChecked; // Uncheck if all are checked, otherwise check
+                        handleCheckboxChange(checkbox);
+                    });
+
+                    // Update button text based on the state
+                    this.textContent = allChecked ? 'Check All' : 'Uncheck All';
                 });
-
-                // Update button text based on the state
-                button.textContent = allChecked ? 'Check All' : 'Uncheck All';
-            };
-
-            // Function to toggle recipe content visibility
-            window.toggleRecipe = function(title) {
-                const recipeContent = title.nextElementSibling;
-                recipeContent.classList.toggle('open');
-            };
-
-            // Function to filter recipes by type (All, Rice, Pasta, Potatoes, Soup)
-            window.filterByType = function(type) {
-                const buttons = document.querySelectorAll('.filters .row:first-child button');
-                buttons.forEach(button => button.classList.remove('active'));
-                document.getElementById(`filter-${type}`).classList.add('active');
-
-                filterRecipes();
-            };
-
-            // Function to toggle Meat and Fish filters
-            window.toggleFilter = function(filter) {
-                const button = document.getElementById(`filter-${filter}`);
-                button.classList.toggle('active');
-                filterRecipes();
-            };
-
-            // Function to filter recipes based on selected options
-            function filterRecipes() {
-                const selectedType = document.querySelector('.filters .row:first-child button.active')?.id.replace('filter-', '');
-                const showMeat = document.getElementById('filter-meat').classList.contains('active');
-                const showFish = document.getElementById('filter-fish').classList.contains('active');
-
-                const recipes = document.querySelectorAll('.recipe');
-                recipes.forEach(recipe => {
-                    const recipeType = recipe.getAttribute('data-type');
-                    const hasMeat = recipe.getAttribute('data-meat') === 'true';
-                    const hasFish = recipe.getAttribute('data-fish') === 'true';
-
-                    const typeMatch = selectedType === 'all' || recipeType === selectedType;
-                    const meatMatch = !showMeat || hasMeat;
-                    const fishMatch = !showFish || hasFish;
-
-                    if (typeMatch && meatMatch && fishMatch) {
-                        recipe.style.display = 'block';
-                    } else {
-                        recipe.style.display = 'none';
-                    }
-                });
-            }
+            });
 
             // Function to update the shopping list
             function updateShoppingList() {
                 shoppingListContent.innerHTML = '';
-                const categories = ["Meat", "Vegetables", "Carbs", "Herbs/Spices", "Fish"];
+                const categories = ["Meat", "Vegetables", "Carbs", "Herbs/Spices", "Premade Spicemixes"];
                 categories.forEach(category => {
                     if (ingredients[category]) {
                         const categoryBox = document.createElement('div');
@@ -402,10 +315,8 @@
                     }
                 });
             }
-
-            // Initialize filters
-            filterByType('all'); // Default filter
         });
     </script>
 </body>
+
 </html>
