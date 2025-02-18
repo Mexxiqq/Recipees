@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Shopping List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .container {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 70%;
+            /* Adjust as needed */
+        }
+
+        .recipes {
+            margin-bottom: 20px;
+        }
+
+        .recipe {
+            margin-bottom: 40px;
+        }
+
+        .recipe h2 {
+            margin-bottom: 10px;
+        }
+
+        .recipe ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .recipe li {
+            margin: 5px 0;
+        }
+
+        .recipe input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .instructions {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #007bff;
+        }
+
+        #shopping-list {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 25%;
+            /* Adjust as needed */
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-height: 90vh;
+            /* Limit height to viewport */
+            overflow-y: auto;
+            /* Add scroll if content overflows */
+        }
+
+        #shopping-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #shopping-list li {
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .category-box {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+
+        .check-all {
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .check-all:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Recipes</h1>
+        <div class="recipes">
+            <!-- Recipe 1 -->
+            <div class="recipe">
+                <h2>Recipe 1: Spaghetti Bolognese</h2>
+                <button class="check-all">Check All</button>
+                <ul>
+                    <li><input type="checkbox" data-name="Spaghetti" data-quantity="200" data-category="Carbs"> 200g
+                        Spaghetti</li>
+                    <li><input type="checkbox" data-name="Ground Beef" data-quantity="300" data-category="Meat"> 300g
+                        Ground Beef</li>
+                    <li><input type="checkbox" data-name="Tomato Sauce" data-quantity="400" data-category="Vegetables">
+                        400ml Tomato Sauce</li>
+                    <li><input type="checkbox" data-name="Onion" data-quantity="1" data-category="Vegetables"> 1 Onion
+                    </li>
+                    <li><input type="checkbox" data-name="Garlic" data-quantity="2" data-category="Herbs/Spices"> 2
+                        Garlic Cloves</li>
+                </ul>
+                <div class="instructions">
+                    <h3>Instructions</h3>
+                    <p>1. Cook spaghetti according to package instructions. <br>
+                        2. Brown ground beef in a pan. <br>
+                        3. Add tomato sauce, onion, and garlic. Simmer for 10 minutes. <br>
+                        4. Serve sauce over spaghetti.</p>
+                </div>
+            </div>
+
+            <!-- Recipe 2 -->
+            <div class="recipe">
+                <h2>Recipe 2: Spaghetti Carbonara</h2>
+                <button class="check-all">Check All</button>
+                <ul>
+                    <li><input type="checkbox" data-name="Spaghetti" data-quantity="200" data-category="Carbs"> 200g
+                        Spaghetti</li>
+                    <li><input type="checkbox" data-name="Bacon" data-quantity="150" data-category="Meat"> 150g Bacon
+                    </li>
+                    <li><input type="checkbox" data-name="Eggs" data-quantity="2" data-category="Vegetables"> 2 Eggs
+                    </li>
+                    <li><input type="checkbox" data-name="Parmesan Cheese" data-quantity="50"
+                            data-category="Herbs/Spices"> 50g Parmesan Cheese</li>
+                </ul>
+                <div class="instructions">
+                    <h3>Instructions</h3>
+                    <p>1. Cook spaghetti according to package instructions. <br>
+                        2. Fry bacon until crispy. <br>
+                        3. Whisk eggs and Parmesan cheese together. <br>
+                        4. Combine spaghetti, bacon, and egg mixture. Serve immediately.</p>
+                </div>
+            </div>
+
+            <!-- Recipe 3 -->
+            <div class="recipe">
+                <h2>Recipe 3: Chicken Stir Fry</h2>
+                <button class="check-all">Check All</button>
+                <ul>
+                    <li><input type="checkbox" data-name="Chicken Breast" data-quantity="300" data-category="Meat"> 300g
+                        Chicken Breast</li>
+                    <li><input type="checkbox" data-name="Bell Peppers" data-quantity="2" data-category="Vegetables"> 2
+                        Bell Peppers</li>
+                    <li><input type="checkbox" data-name="Soy Sauce" data-quantity="50"
+                            data-category="Premade Spicemixes"> 50ml Soy Sauce</li>
+                    <li><input type="checkbox" data-name="Rice" data-quantity="200" data-category="Carbs"> 200g Rice
+                    </li>
+                </ul>
+                <div class="instructions">
+                    <h3>Instructions</h3>
+                    <p>1. Cook rice according to package instructions. <br>
+                        2. Stir-fry chicken and bell peppers in a pan. <br>
+                        3. Add soy sauce and cook for 5 minutes. <br>
+                        4. Serve with rice.</p>
+                </div>
+            </div>
+
+            <!-- Recipe 4 -->
+            <div class="recipe">
+                <h2>Recipe 4: Pancakes</h2>
+                <button class="check-all">Check All</button>
+                <ul>
+                    <li><input type="checkbox" data-name="Flour" data-quantity="200" data-category="Carbs"> 200g Flour
+                    </li>
+                    <li><input type="checkbox" data-name="Milk" data-quantity="300" data-category="Vegetables"> 300ml
+                        Milk</li>
+                    <li><input type="checkbox" data-name="Eggs" data-quantity="2" data-category="Vegetables"> 2 Eggs
+                    </li>
+                    <li><input type="checkbox" data-name="Butter" data-quantity="50" data-category="Vegetables"> 50g
+                        Butter</li>
+                </ul>
+                <div class="instructions">
+                    <h3>Instructions</h3>
+                    <p>1. Mix flour, milk, and eggs to make the batter. <br>
+                        2. Heat butter in a pan. <br>
+                        3. Pour batter into the pan and cook until golden brown on both sides. <br>
+                        4. Serve with syrup or fruit.</p>
+                </div>
+            </div>
+
+            <!-- Recipe 5 -->
+            <div class="recipe">
+                <h2>Recipe 5: Caesar Salad</h2>
+                <button class="check-all">Check All</button>
+                <ul>
+                    <li><input type="checkbox" data-name="Romaine Lettuce" data-quantity="1" data-category="Vegetables">
+                        1 Romaine Lettuce</li>
+                    <li><input type="checkbox" data-name="Croutons" data-quantity="100" data-category="Carbs"> 100g
+                        Croutons</li>
+                    <li><input type="checkbox" data-name="Parmesan Cheese" data-quantity="50"
+                            data-category="Herbs/Spices"> 50g Parmesan Cheese</li>
+                    <li><input type="checkbox" data-name="Caesar Dressing" data-quantity="100"
+                            data-category="Premade Spicemixes"> 100ml Caesar Dressing</li>
+                </ul>
+                <div class="instructions">
+                    <h3>Instructions</h3>
+                    <p>1. Wash and chop the lettuce. <br>
+                        2. Toss lettuce with croutons, Parmesan cheese, and Caesar dressing. <br>
+                        3. Serve immediately.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopping List -->
+    <div id="shopping-list">
+        <h2>Shopping List</h2>
+        <div id="shopping-list-content"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const shoppingListContent = document.getElementById('shopping-list-content');
+            const checkAllButtons = document.querySelectorAll('.check-all');
+            let ingredients = {};
+
+            // Function to handle checkbox changes
+            function handleCheckboxChange(checkbox) {
+                const name = checkbox.getAttribute('data-name');
+                const quantity = parseFloat(checkbox.getAttribute('data-quantity'));
+                const category = checkbox.getAttribute('data-category');
+
+                if (checkbox.checked) {
+                    if (ingredients[category]?.[name]) {
+                        ingredients[category][name] += quantity;
+                    } else {
+                        if (!ingredients[category]) ingredients[category] = {};
+                        ingredients[category][name] = quantity;
+                    }
+                } else {
+                    if (ingredients[category]?.[name]) {
+                        ingredients[category][name] -= quantity;
+                        if (ingredients[category][name] <= 0) {
+                            delete ingredients[category][name];
+                            if (Object.keys(ingredients[category]).length === 0) {
+                                delete ingredients[category];
+                            }
+                        }
+                    }
+                }
+
+                updateShoppingList();
+            }
+
+            // Add event listeners to individual checkboxes
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    handleCheckboxChange(this);
+                });
+            });
+
+            // Add event listeners to "Check All" buttons
+            checkAllButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const recipe = this.closest('.recipe');
+                    const recipeCheckboxes = recipe.querySelectorAll('input[type="checkbox"]');
+
+                    // Check if all checkboxes in the recipe are already checked
+                    const allChecked = Array.from(recipeCheckboxes).every(checkbox => checkbox.checked);
+
+                    // Toggle all checkboxes
+                    recipeCheckboxes.forEach(checkbox => {
+                        checkbox.checked = !allChecked; // Uncheck if all are checked, otherwise check
+                        handleCheckboxChange(checkbox);
+                    });
+
+                    // Update button text based on the state
+                    this.textContent = allChecked ? 'Check All' : 'Uncheck All';
+                });
+            });
+
+            // Function to update the shopping list
+            function updateShoppingList() {
+                shoppingListContent.innerHTML = '';
+                const categories = ["Meat", "Vegetables", "Carbs", "Herbs/Spices", "Premade Spicemixes"];
+                categories.forEach(category => {
+                    if (ingredients[category]) {
+                        const categoryBox = document.createElement('div');
+                        categoryBox.className = 'category-box';
+                        const ul = document.createElement('ul');
+                        for (const [name, quantity] of Object.entries(ingredients[category])) {
+                            const li = document.createElement('li');
+                            li.textContent = `${quantity}g ${name}`;
+                            ul.appendChild(li);
+                        }
+                        categoryBox.appendChild(ul);
+                        shoppingListContent.appendChild(categoryBox);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
