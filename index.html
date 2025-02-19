@@ -175,7 +175,27 @@
         .recipe-summary li:hover {
             text-decoration: underline;
         }
+        
+        .export-buttons {
+            margin-top: 20px;
+        }
+
+        .export-buttons button {
+            margin-right: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .export-buttons button:hover {
+            background-color: #0056b3;
+        }
     </style>
+    <!-- Include html2pdf.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -313,6 +333,11 @@
     <div id="shopping-list">
         <h2>Shopping List <span id="recipe-counter">(0)</span></h2>
         <div id="shopping-list-content"></div>
+        <!-- Export Buttons -->
+        <div class="export-buttons">
+            <button onclick="copyToClipboard()">Copy to Clipboard</button>
+            <button onclick="exportToPDF()">Export to PDF</button>
+        </div>
     </div>
 
     <script>
@@ -401,7 +426,7 @@
 
             // Function to uncheck a recipe from the shopping list
             window.uncheckRecipe = function(recipeTitle) {
-                const recipe = Array.from(document.querySelectorAll(".recipe")).find(
+                const recipe = Array.from(document.querySelectorAll('.recipe')).find(
                     r => r.querySelector('h3').textContent === recipeTitle
                 );
                 if (recipe) {
@@ -450,6 +475,33 @@
                 // Update recipe counter
                 recipeCounter.textContent = `(${checkedRecipes.size})`;
             }
+
+            // Function to copy shopping list text to clipboard
+            window.copyToClipboard = function() {
+                const textToCopy = Array.from(checkedRecipes).map(recipe => {
+                    const recipeIngredients = Object.entries(ingredients)
+                        .filter(([category, items]) => Object.keys(items).length > 0)
+                        .map(([category, items]) => {
+                            return `${category}:\n${Object.entries(items)
+                                .map(([name, quantity]) => `- ${quantity}g ${name}`)
+                                .join('\n')}`;
+                        })
+                        .join('\n\n');
+                    return `${recipe}:\n${recipeIngredients}`;
+                }).join('\n\n');
+
+                navigator.clipboard.writeText(textToCopy)
+                    .then(() => alert('Shopping list copied to clipboard!'))
+                    .catch(() => alert('Failed to copy shopping list to clipboard.'));
+            };
+
+            // Function to export shopping list to PDF
+            window.exportToPDF = function() {
+                const element = document.getElementById('shopping-list');
+                html2pdf()
+                    .from(element)
+                    .save('shopping-list.pdf');
+            };
         });
     </script>
 </body>
