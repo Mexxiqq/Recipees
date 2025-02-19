@@ -261,7 +261,7 @@
             <div class="recipes">
                 <!-- Recipe 4 -->
                 <div class="recipe">
-                    <h3 onclick="toggleRecipe(this)">Shepherds Pie</h3>
+                    <h3 onclick="toggleRecipe(this)">Shepherd's Pie</h3>
                     <div class="recipe-content">
                         <button class="check-all" onclick="toggleCheckAll(this)">Check All</button>
                         <ul>
@@ -401,7 +401,7 @@
 
             // Function to uncheck a recipe from the shopping list
             window.uncheckRecipe = function(recipeTitle) {
-                const recipe = Array.from(document.querySelectorAll('.recipe')).find(
+                const recipe = Array.from(document.querySelectorAll(".recipe")).find(
                     r => r.querySelector('h3').textContent === recipeTitle
                 );
                 if (recipe) {
